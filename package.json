@@ -1,18 +1,30 @@
 {
   "name": "",
-  "type": "module",
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "astro": "astro",
     "build": "astro check && astro build",
+    "dev": "astro dev",
     "preview": "astro preview",
-    "astro": "astro"
+    "start": "astro dev",
+    "db:generate": "drizzle-kit generate --config=drizzle.config.mjs",
+    "db:migrate": "drizzle-kit migrate --config=drizzle.config.mjs",
+    "db:drop": "drizzle-kit drop --config=drizzle.config.mjs"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.3",
-    "@astrojs/db": "^0.14.0",
+    "@astrojs/node": "^8.3.3",
+    "@libsql/client": "^0.10.0",
+    "@lucia-auth/adapter-drizzle": "^1.1.0",
+    "@node-rs/argon2": "^1.8.3",
     "astro": "^4.15.1",
+    "drizzle-orm": "^0.33.0",
+    "lucia": "^3.2.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.3",
+    "@types/bun": "^1.1.8",
+    "drizzle-kit": "^0.24.2",
     "typescript": "^5.5.4"
   }
 }

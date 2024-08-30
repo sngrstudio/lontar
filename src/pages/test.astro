@@ -1,0 +1,8 @@
+---
+import { db } from "~/db/drizzle";
+import { Debug } from 'astro:components'
+
+const data = await db.query.user.findMany()
+---
+
+<Debug {data} />
