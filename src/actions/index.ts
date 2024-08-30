@@ -1,5 +1,5 @@
-import {signUp} from './auth'
+import * as authActions from './auth'
 
 export const server = {
-  signUp
+  ...authActions
 }

@@ -1,8 +1,21 @@
 ---
 import { db } from "~/db/drizzle";
+import { actions } from "astro:actions"
 import { Debug } from 'astro:components'
 
-const data = await db.query.user.findMany()
+const users = await db.query.user.findMany()
+const session = await db.query.session.findMany()
+
+
+const user = Astro.locals.user
 ---
 
-<Debug {data} />
+<Debug {user} />
+<Debug {users} />
+<Debug {session} />
+
+
+{user && <p>{user.username}</p>
+<form method="post" action={'/auth/login' + actions.logout}>
+    <input type="submit" value="logout"/>
+</form>}

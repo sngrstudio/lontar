@@ -6,21 +6,21 @@ if (user) {
 	return Astro.redirect('/test')
 }
 
-const result = Astro.getActionResult(actions.signup);
+const result = Astro.getActionResult(actions.login);
 ---
 
 <html lang="en">
 	<head>
-		<title>Sign Up</title>
+		<title>Login</title>
 	</head>
 	<body>
 		{result && result.error && <p style="color: red;">{result.error.message}</p>}
-		<form method="post" action={ '/test' + actions.signup}>
+		<form method="post" action={ '/test' + actions.login}>
             <label for="username">Username</label>
 			<input id="username" name="username" />
 			<label for="password">Password</label>
 			<input id="password" name="password" />
-			<button type="submit">Sign Up</button>
+			<button type="submit">Login</button>
         </form>
 	</body>
 </html>
